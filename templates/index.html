@@ -1,0 +1,150 @@
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Eddie and Maggie</title>
+
+    <!-- Bootstrap -->
+    <link href= "{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href= "{{ url_for('static', filename='css/lightbox.min.css') }}" >
+    <link rel="stylesheet" href= "{{ url_for('static', filename='css/heart.css') }}" >
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='js/three.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/tween.min.js') }}"></script>		 
+	<script src="{{ url_for('static', filename='js/TrackballControls.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/CSS3DRenderer.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<script type="text/javascript">
+		var animstop=false;
+		var image_num=0;
+		var cur_image=80;
+		$(document).ready(function(){
+			init()
+		});
+
+		function init(){
+			images=getImg();
+			init3DphotoWall(images);
+			animate();
+		}
+		function getImg(){
+			mjimg={{jimg|safe}};
+			image_num=mjimg.length;
+			return mjimg;
+		}
+		function init3DphotoWall(images){
+
+			scene=new THREE.Scene();
+			camera=new THREE.PerspectiveCamera(40,window.innerWidth/window.innerHeight,1,1000);
+			camera.position.z=3000;
+			var container=$("#container");
+			renderer=new THREE.CSS3DRenderer();
+			renderer.setSize(window.innerWidth,window.innerHeight);
+			renderer.domElement.style.position='absolute';
+			$('#container').append(renderer.domElement)
+
+			//control
+			controls=new THREE.TrackballControls(camera,renderer.domElement);
+			controls.rotateSpeed = 0.5;
+			controls.minDistance = 500;
+			controls.maxDistance = 6000;
+			controls.addEventListener( 'change', render );
+			// add image to scene
+			for (var  i=0 ; i</*images.length*/cur_image;i++){
+				var image=images[i];
+				var a=document.createElement('a');
+				a.href='static/photo/'+image;
+				a.setAttribute('data-lightbox','photo');
+				a.setAttribute('title','eddie \'s photo');
+				var img=new Image();
+				console.log(image);
+				img.src='static/thumbnail/'+image;
+				a.appendChild(img);
+
+				var object=new THREE.CSS3DObject(a);
+				var w=window.innerWidth, h=window.innerHeight;
+				updatepos(object);
+				scene.add(object);
+				/*
+				var object = new THREE.Object3D();
+				object.position.x = (  i* 140 ) - 1330;
+				object.position.y = - ( i* 180 ) + 990;
+				positions.push( object );	*/				
+
+			}
+			renderer.render( scene, camera );
+		}
+		function animate() {
+				requestAnimationFrame( animate );
+				if(animstop==false)
+				$.map(scene.children,function(obj,i){
+					obj.position.x+=0.5;
+					obj.position.y+=0.5;
+					obj.position.z+=4;
+					if(obj.position.z>camera.position.z){
+						cur_image=(cur_image+1)%image_num;
+						obj.element.firstChild.src='static/thumbnail/'+mjimg[cur_image];
+						obj.element.href='static/photo/'+mjimg[cur_image];
+						updatepos(obj);
+					}
+				})
+				render();
+				controls.update();
+			}
+		function render(){
+			renderer.render( scene, camera );
+		}
+		function updatepos(object){
+			object.position.x=Math.random() * 4000 - 2000;
+			object.position.y=Math.random() * 4000 - 2000;
+			object.position.z=camera.position.z-Math.random() * 8000;
+		}
+	</script>
+	<style type="text/css">
+	  html{ height:100%;width: 100%;}
+	  body { background: black !important;height:100%;width: 100%;overflow: hidden }
+	  #container{position: absolute;padding: 0px}
+	  #navigation{margin-bottom: 0px;}
+	  
+	</style>
+</head>
+<body >
+
+	<nav class="navbar navbar-default navbar-inverse narbar-fixed-top" id="navigation" >
+		<div class="container-fluid" id="navfluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigationbar">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="#">Eddie   <div class="heartbeat">Loading...</div>    Maggie </a>
+
+		    </div>
+
+		   <div class="collapse navbar-collapse" id="navigationbar">
+         	 <ul class="nav navbar-nav navbar-right">
+
+	          	<li class="active"> <a href="#">相册墙</a></li>
+	          	<li> <a href="map">足迹</a></li>
+	          	<li> <a href="#">时间</a></li>
+             </ul>
+       	    </div>
+		</div> 
+	</nav>
+	<row>
+	<div class="container" id="container"></div>
+	</row>
+	<script src="{{ url_for('static', filename='js/lightbox-plus-jquery.min.js') }}" ></script> 
+</body>
+</html>
