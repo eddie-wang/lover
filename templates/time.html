@@ -1,0 +1,91 @@
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Eddie and Maggie</title>
+
+    <!-- Bootstrap -->
+    <link href= "{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href= "{{ url_for('static', filename='css/heart.css') }}" >
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>	 
+	<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<script type="text/javascript">
+		function showclock(){
+			var month=[31,28,31,30,31,30,31,31,30,31,30,31];
+			var today = new Date();
+			var minutes=today.getMinutes();
+			var hours=today.getHours();
+			var seconds=today.getSeconds();
+			var days=107; 
+			for(var i=2012;i<today.getFullYear();i++){
+				days+=365+isLeapYear(i);
+			}
+			for(var i=0;i<today.getMonth();i++){
+				days+=month[i];
+				if(i==1&&isLeapYear(today.getFullYear())==1)
+				days++;
+			}
+			days+=today.getDate()-1;
+			$('#clock').html("<div> <span>梦梦  我想和你一起虚度时光 </span> </div><div id='time'>"+days+" <span class='t'>days</span> "+hours+"  <span class='t'>hours</span> "+minutes+" <span class='t'>minutes</span> "+seconds+" <span class='t'>seconds</span></div>"+"<div style='margin-top:19%;margin-left:5%'>迟到的情人节快乐</div><div style='margin-left:50% ;font-size:70%'>---爱你的小灰<div>"  
+
+			);
+			setTimeout(showclock, 500);
+		 };
+		 function isLeapYear(year){
+		 	if((year%4==0&&year%100!=0)||year%400==0)
+		 		return 1;
+		 	else
+		 		return 0;
+		 }
+		 $(document).ready(showclock);
+	</script>
+	<style type="text/css">
+	  html{ height:100%;width: 100%;}
+	  body { background: black !important;height:100%;width: 100%;overflow: hidden }
+	  nav{margin-bottom: 0px !important;}
+	  #clock{font-size: 150%;position: absolute;top: 35%;left: 35%;}
+	  #time{font-size: 170%}
+	  .t{font-size: 50%;}
+	</style>
+</head>
+
+<body>
+
+	<nav class="navbar navbar-default navbar-inverse narbar-fixed-top" id="navigation" >
+		<div class="container-fluid" id="navfluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigationbar">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="#">Eddie   <div class="heartbeat">Loading...</div>    Maggie </a>
+
+		    </div>
+
+		   <div class="collapse navbar-collapse" id="navigationbar">
+	     	 <ul class="nav navbar-nav navbar-right">
+
+	          	<li> <a href="/">相册墙</a></li>
+	          	<li> <a href="map">足迹</a></li>
+	          	<li class="active"> <a href="time">时间</a></li>
+	         </ul>
+	   	    </div>
+		</div> 
+		</nav>
+	<div id='clock'>
+
+	</div>
+</body>
+
+</html>

@@ -17,8 +17,11 @@ def gallery():
 @app.route('/map')
 def map():
 	return render_template('map.html')
-@app.route('/getmarkerinfo')
 
+@app.route('/time')
+def time():
+	return render_template('time.html')
+@app.route('/getmarkerinfo')
 def getmarker():
 	# connect mongodb database
 	client= MongoClient('localhost',27017)
