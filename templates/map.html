@@ -25,6 +25,9 @@
 	  body { background: black !important;height:100%;width: 100%;overflow: hidden }
 	  #map { height: 100%; }
 	  nav{margin-bottom: 0px !important;}
+	  #marker_content{ float:left;width:50%;height:100%;word-wrap: break-word;}
+	  #marker_photo{ float:right;width:50%;}　  
+	 
 	</style>
 </head>
 <body >
@@ -115,9 +118,42 @@
 
   		//add marker
          $.ajax({url:"getmarkerinfo",success:function(result){
-         	console.log(result);}
-         })
-    	}
+         		console.log(result);
+
+         		//json 
+         		markers=JSON.parse(result);
+         		console.log(markers);
+         		for ( var i =0;i<markers.length; i++){
+         			var data=markers[i];
+         			var pos=data["location"],title=data["title"],content=data["content"],img=data["img"];
+	         		console.log(data);
+	         		var contentString=generateHtml(title,content,img);
+	         		var marker=new google.maps.Marker({ 
+	         			position:pos,
+	         			map:map,
+	         			title:'test'
+	         		});
+	         		var infowindow=new google.maps.InfoWindow({content:contentString})
+	         		marker.addListener('click',function(){
+	         			infowindow.open(map,marker);
+	         		})
+         		}		
+        	 }
+
+        	})
+		}
+         function generateHtml(title, content,img){
+         	return '<div id="marker">\
+			<h1 id="marker_title">'+title+'</h1>\
+			<div id="marker_content">\
+			<p>'+content+'</p>\
+			</div>\
+			<div id="marker_photo">\
+			<img src="static/photo/'+img+' ">\
+			</div>\
+			</div>'
+         }
+    	
     </script>
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtxhOlPo84pXQhGotXK3crBZtzrZXL28Q&language=zh-CN&callback=initMap">
