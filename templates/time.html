@@ -34,7 +34,7 @@
 				days++;
 			}
 			days+=today.getDate()-1;
-			$('#clock').html("<div> <span>梦梦  我想和你一起虚度时光 </span> </div><div id='time'>"+days+" <span class='t'>days</span> "+hours+"  <span class='t'>hours</span> "+minutes+" <span class='t'>minutes</span> "+seconds+" <span class='t'>seconds</span></div>"+"<div style='margin-top:19%;margin-left:5%'>迟到的情人节快乐</div><div style='margin-left:50% ;font-size:70%'>---爱你的小灰<div>"  
+			$('#clock').html("<div> <span>梦梦  我想和你一起虚度时光 </span> </div><div id='time'>"+days+" <span class='t'>days</span> "+hours+"  <span class='t'>hours</span> "+minutes+" <span class='t'>minutes</span> "+seconds+" <span class='t'>seconds</span></div>"+"<div style='margin-top:19%;margin-left:0%'>迟到的情人节快乐</div><div style='margin-left:50% ;font-size:70%'>---爱你的小灰<div>"  
 
 			);
 			setTimeout(showclock, 500);
@@ -45,15 +45,40 @@
 		 	else
 		 		return 0;
 		 }
-		 $(document).ready(showclock);
+		 $(document).ready(setTimeout(showclock, 4200));
 	</script>
 	<style type="text/css">
 	  html{ height:100%;width: 100%;}
 	  body { background: black !important;height:100%;width: 100%;overflow: hidden }
 	  nav{margin-bottom: 0px !important;}
-	  #clock{font-size: 150%;margin-top: 20%}
+	  #clock{font-size: 150%;margin-top: 5%}
 	  #time{font-size: 170%}
 	  .t{font-size: 50%;}
+	  #poem{font-size: 190%;}
+	  #first{ white-space:nowrap; overflow:hidden;width:30em; animation: type 1s steps(60,end);}
+	  @keyframes type{
+	  	0%{width:0;}
+	  	100%{width:100;}
+	  }
+	  #second{ white-space:nowrap; overflow:hidden;width:30em; animation: type2 2s steps(60,end);}
+	  @keyframes type2{
+	  	0%{width:0;}
+	  	50%{width:0;}
+	  	100%{width:100;}
+	  }
+	  #third{ white-space:nowrap; overflow:hidden;width:30em; animation: type3 3s steps(60,end);}
+	  @keyframes type3{
+	  	0%{width:0;}
+	  	66%{width:0;}
+	  	100%{width:100;}
+	  }
+	  #fourth{ white-space:nowrap; overflow:hidden;width:30em; animation: type4 4s steps(60,end);}
+	  @keyframes type4{
+	  	0%{width:0;}
+	  	75%{width:0;}
+	  	100%{width:100;}
+	  }
+
 	</style>
 </head>
 
@@ -83,6 +108,14 @@
 	   	    </div>
 		</div> 
 		</nav>
+	<row>
+		<div class="col-sm-5 col-sm-offset-5" id='poem'>
+				<p id="first">死生契阔，</p>
+				<p id="second">与子成说。</p>
+				<p id="third">执子之手，</p>
+				<p id="fourth">与子偕老。</p>
+		</div>
+	<row>
 	<row>	
 		<div class="col-sm-5 col-sm-offset-4" id='clock'>
 
