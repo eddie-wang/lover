@@ -49,7 +49,7 @@
 		   <div class="collapse navbar-collapse" id="navigationbar">
          	 <ul class="nav navbar-nav navbar-right">
 
-	          	<li > <a href="/">相册墙</a></li>
+	          	<li > <a href="photo">相册墙</a></li>
 	          	<li class="active"> <a href="map">足迹</a></li>
 	          	<li> <a href="time">时间</a></li>
              </ul>
@@ -112,7 +112,7 @@
 			      mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
 			    }
 			  };
-		var map = new google.maps.Map(document.getElementById('map'),mapOptions);	  
+		map = new google.maps.Map(document.getElementById('map'),mapOptions);	  
     	map.mapTypes.set('map_style', styledMap);
   		map.setMapTypeId('map_style');
 
@@ -123,25 +123,64 @@
          		//json 
          		markers=JSON.parse(result);
          		console.log(markers);
+         		console.log(markers.length);
          		for ( var i =0;i<markers.length; i++){
          			var data=markers[i];
-         			var pos=data["location"],title=data["title"],content=data["content"],img=data["img"];
+                 	var pos=data["location"],title=data["title"],content=data["content"],img=data["img"];
 	         		console.log(data);
 	         		var contentString=generateHtml(title,content,img);
 	         		var marker=new google.maps.Marker({ 
 	         			position:pos,
 	         			map:map,
-	         			title:'test'
+	         			title:'asfsa'
 	         		});
 	         		var infowindow=new google.maps.InfoWindow({content:contentString})
 	         		marker.addListener('click',function(){
 	         			infowindow.open(map,marker);
 	         		})
+	         		marker.addListener('rightclick',function(){
+	         			
+	         		})	
          		}		
         	 }
 
         	})
+
+	         var update_timeout=null;
+			google.maps.event.addListener(map,'rightclick',function(event){
+				update_timeout=setTimeout(pop(event.latLng),200);
+			})
+			google.maps.event.addListener(map, 'dblclick', function(event) {       
+				clearTimeout(update_timeout);
+			});
 		}
+		function pop(pos) {
+			var contentString='\
+			 <form method="post" action="insertmarker" enctype="multipart/form-data">\
+			 	<input type="hidden" name="lat" value=' + pos.lat()+ ' />\
+			 	<input type="hidden" name="lng" value='+pos.lng()+' />\
+			  <div class="form-group">\
+			    <label for="exampleInputEmail1">Title</label>\
+			    <input type="text" class="form-control" id="exampleInputEmail1" name="title" placeholder="Title">\
+			  </div>\
+			  <div class="form-group">\
+			  	<label for="content">content:</label>\
+			    <textarea name="content" class="form-control" rows="5"></textarea>\
+			  </div>\
+			  <div class="form-group">\
+			    <label for="exampleInputFile">File input</label>\
+			    <input type="file" id="exampleInputFile" name="img">\
+			    <p class="help-block">Uplaod a image here.</p>\
+			  </div>\
+			  <button type="submit" class="btn btn-primary">Submit</button>\
+			</form>\
+			';
+     		var infowindow=new google.maps.InfoWindow({content:contentString});
+     		infowindow.setPosition(pos);
+     		infowindow.open(map);
+		}
+		
+
          function generateHtml(title, content,img){
          	return '<div id="marker">\
 			<h1 id="marker_title">'+title+'</h1>\

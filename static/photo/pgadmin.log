@@ -1,0 +1,503 @@
+2015-09-24 17:09:07 ERROR  : Error connecting to the server: FATAL:  password authentication failed for user "ds"
+FATAL:  password authentication failed for user "ds"
+
+2015-09-24 17:09:32 ERROR  : Error connecting to the server: FATAL:  password authentication failed for user "ds"
+FATAL:  password authentication failed for user "ds"
+
+2015-09-24 17:19:50 ERROR  : FATAL:  pg_hba.conf rejects connection for host "68.181.206.173", user "ds", database "rdsadmin", SSL on
+FATAL:  pg_hba.conf rejects connection for host "68.181.206.173", user "ds", database "rdsadmin", SSL off
+
+2015-09-24 17:28:28 ERROR  : FATAL:  pg_hba.conf rejects connection for host "68.181.206.173", user "ds", database "rdsadmin", SSL on
+FATAL:  pg_hba.conf rejects connection for host "68.181.206.173", user "ds", database "rdsadmin", SSL off
+
+2015-09-24 17:29:02 ERROR  : ERROR:  permission denied for relation intersections
+2015-09-24 17:46:37 ERROR  : FATAL:  pg_hba.conf rejects connection for host "68.181.206.173", user "ds", database "rdsadmin", SSL on
+FATAL:  pg_hba.conf rejects connection for host "68.181.206.173", user "ds", database "rdsadmin", SSL off
+
+2015-09-24 19:08:24 ERROR  : ERROR:  column "from_node" does not exist
+LINE 1: ...ic=1 and name_default like '%I-110%' and bearing (from_node,...
+                                                             ^
+2015-09-24 19:08:36 ERROR  : ERROR:  function bearing() does not exist
+LINE 1: ...ass_numeric=1 and name_default like '%I-110%' and bearing ()
+                                                             ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+2015-09-24 19:22:14 ERROR  : ERROR:  column "default_name" does not exist
+LINE 1: Select link_id,default_name from links where function_class_...
+                       ^
+2015-09-24 19:37:29 ERROR  : ERROR:  operator does not exist: geometry = point
+LINE 1: select * from nodes where geom=point(0,0)
+                                      ^
+HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.
+2015-09-24 19:37:59 ERROR  : ERROR:  operator does not exist: geometry = point
+LINE 1: select * from nodes where geom=POINT(0,0)
+                                      ^
+HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.
+2015-09-24 19:38:00 ERROR  : ERROR:  operator does not exist: geometry = point
+LINE 1: select * from nodes where geom=POINT(0,0)
+                                      ^
+HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.
+2015-09-24 19:39:32 ERROR  : ERROR:  column "asdf" does not exist
+LINE 1: select * from nodes where geom=ST_GeomFromText("asdf")
+                                                       ^
+2015-09-24 19:39:40 ERROR  : ERROR:  function st_geomfromtext() does not exist
+LINE 1: select * from nodes where geom=ST_GeomFromText()
+                                       ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+2015-09-24 19:41:12 ERROR  : ERROR:  Operation on two GEOMETRIES with different SRIDs
+2015-09-24 19:55:40 ERROR  : server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+2015-09-24 19:55:45 ERROR  : ERROR:  parse error - invalid geometry
+HINT:  "SRID=4326;POINT(0,0" <-- parse error at position 19 within geometry
+2015-09-24 20:40:13 ERROR  : ERROR:  column "id" does not exist
+LINE 1: select ST_AsText(geom) ,id from nodes where ST_DWithin(geom,...
+                                ^
+2015-09-24 21:07:12 ERROR  : ERROR:  syntax error at or near "select"
+LINE 4: select link_id,name_default,from_node_id,to_node_id,length,d...
+        ^
+2015-09-24 21:07:26 ERROR  : ERROR:  syntax error at end of input
+LINE 4: ...unction_class_numeric=1 and name_default like '%I-110%' and 
+                                                                       ^
+2015-09-24 21:18:44 ERROR  : ERROR:  operator does not exist: double precision =< numeric
+LINE 4: ....geom) and ST_Y(A.geom)>=33.982206and ST_Y(A.geom)=<34.01390...
+                                                             ^
+HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.
+2015-09-24 21:40:40 ERROR  : ERROR:  unterminated quoted string at or near "'0"
+LINE 1: ...I-110' and postmile >=17 and postmile <=20  and direction='0
+                                                                     ^
+2015-09-24 21:44:26 ERROR  : ERROR:  relation "highway_senser_config" does not exist
+LINE 1: select distinct sensor_id from  highway_senser_config a wher...
+                                        ^
+2015-09-24 21:44:53 ERROR  : ERROR:  column "last_seen_at" does not exist
+LINE 1: ...nct sensor_id from  highway_sensor_config a where last_seen_...
+                                                             ^
+2015-09-24 23:00:55 ERROR  : SSL SYSCALL error: Operation timed out
+2015-09-24 23:06:09 ERROR  : SSL SYSCALL error: Operation timed out
+2015-09-24 23:49:13 ERROR  : ERROR:  syntax error at or near ")"
+LINE 4: select ST_Y(A.geom),ST_X(A.geom,)ST_Y(B.geom),ST_X(B.geom) f...
+                                        ^
+2015-09-24 23:49:20 ERROR  : ERROR:  syntax error at or near ")"
+LINE 4: select ST_Y(A.geom),ST_X(A.geom,),ST_Y(B.geom),ST_X(B.geom) ...
+                                        ^
+2015-09-25 00:51:20 ERROR  : ERROR:  syntax error at or near "select"
+LINE 6: select distinct sensor_id from  highway_congestion_config a ...
+        ^
+2015-09-25 08:40:56 ERROR  : SSL SYSCALL error: Operation timed out
+2015-09-25 09:22:56 ERROR  : SSL SYSCALL error: Operation timed out
+2015-09-25 09:27:10 ERROR  : ERROR:  syntax error at or near "exists"
+LINE 1: ...r_geom from highway_sensor_config where sensor_id exists in ...
+                                                             ^
+2015-09-25 09:27:28 ERROR  : ERROR:  syntax error at or near "exists"
+LINE 1: ...r_geom from highway_sensor_config where sensor_id exists (se...
+                                                             ^
+2015-09-25 09:28:05 ERROR  : ERROR:  syntax error at end of input
+LINE 2: 
+        ^
+2015-09-25 11:59:13 ERROR  : SSL SYSCALL error: Operation timed out
+2015-09-25 12:15:40 ERROR  : server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+2015-09-25 12:15:53 ERROR  : ERROR:  syntax error at or near "select"
+LINE 6: select distinct sensor_id from  highway_congestion_config a ...
+        ^
+2015-09-25 12:16:25 ERROR  : ERROR:  syntax error at or near "select"
+LINE 6: select distinct sensor_id from  highway_congestion_config a ...
+        ^
+2015-09-25 12:16:38 ERROR  : ERROR:  syntax error at or near "select"
+LINE 6: select distinct sensor_id from  highway_congestion_config a ...
+        ^
+2015-09-25 12:38:04 ERROR  : SSL SYSCALL error: Operation timed out
+2015-09-25 13:32:28 ERROR  : ERROR:  syntax error at or near "ST_Y"
+LINE 1: ..._node_id and B.node_id=to_node_id and ST_Y(A.geom)ST_Y(B.geo...
+                                                             ^
+2015-09-25 13:32:42 ERROR  : ERROR:  syntax error at or near "ST_Y"
+LINE 1: ..._node_id and B.node_id=to_node_id and ST_Y(A.geom)ST_Y(B.geo...
+                                                             ^
+2015-09-25 15:55:45 ERROR  : another command is already in progress
+2015-09-25 15:59:15 ERROR  : ERROR:  syntax error at or near "select"
+LINE 6: select distinct link_id,ST_AsText(A.geom),ST_AsText(B.geom),...
+        ^
+2015-09-25 16:25:02 ERROR  : can't open file '/Users/Eddie/Desktop/untitled folder/highway2/sql_result_links' (error 2: No such file or directory)
+2015-09-25 16:25:04 ERROR  : Failed to open file /Users/Eddie/Desktop/untitled folder/highway2/sql_result_links.
+2015-09-25 17:56:43 ERROR  : ERROR:  syntax error at or near "select"
+LINE 6: select distinct link_id,ST_AsText(A.geom),ST_AsText(B.geom),...
+        ^
+2015-09-25 18:46:02 ERROR  : another command is already in progress
+2015-09-25 19:06:54 ERROR  : ERROR:  operator does not exist: character varying = integer
+LINE 1: ...   upper(onstreet) like 'FIGUEROA%'  and direction=0 and ST_...
+                                                             ^
+HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.
+2015-09-25 19:20:34 ERROR  : ERROR:  column "HOST" does not exist
+LINE 1: ...   upper(onstreet) like '%ADAMS%' and fromstreet like "HOST"
+                                                                 ^
+2015-09-25 19:20:49 ERROR  : ERROR:  column "%HOST%" does not exist
+LINE 1: ... upper(onstreet) like '%ADAMS%' and fromstreet like "%HOST%"
+                                                               ^
+2015-09-25 19:52:09 ERROR  : ERROR:  column "default_name" does not exist
+LINE 1: select distinct link_id,default_name,ST_Y(A.geom),ST_X(A.geo...
+                                ^
+2015-09-25 20:01:29 ERROR  : ERROR:  syntax error at or near "select"
+LINE 6: select distinct link_id,ST_AsText(A.geom),ST_AsText(B.geom),...
+        ^
+2015-09-25 20:24:26 ERROR  : ERROR:  operator does not exist: double precision >< double precision
+LINE 1: ..._node_id and B.node_id=to_node_id and ST_X(A.geom)><ST_X(B.g...
+                                                             ^
+HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.
+2015-09-25 20:24:30 ERROR  : ERROR:  operator does not exist: double precision >< double precision
+LINE 1: ..._node_id and B.node_id=to_node_id and ST_X(A.geom)><ST_X(B.g...
+                                                             ^
+HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.
+2015-09-25 20:29:01 ERROR  : ERROR:  syntax error at or near "a"
+LINE 1: ...ion_config where   upper(onstreet) like 'Admas%'  a and ST_X...
+                                                             ^
+2015-09-25 20:30:31 ERROR  : ERROR:  missing FROM-clause entry for table "b"
+LINE 1: ...g where   upper(onstreet) like 'ADAMS%'  and ST_X(B.geom)>=-...
+                                                             ^
+2015-09-25 20:30:43 ERROR  : ERROR:  missing FROM-clause entry for table "b"
+LINE 1: ...g where   upper(onstreet) like 'ADAMS%'  and ST_X(B.geom)>=-...
+                                                             ^
+2015-09-25 20:32:57 ERROR  : ERROR:  syntax error at or near "elect"
+LINE 1: elect distinct link_id,name_default,ST_Y(A.geom),ST_X(A.geom...
+        ^
+2015-09-25 20:34:01 ERROR  : ERROR:  column "name_default_name" does not exist
+LINE 1: Select distinct link_id,name_default_name from links where f...
+                                ^
+2015-09-25 20:34:12 ERROR  : ERROR:  syntax error at or near "select"
+LINE 6: select distinct link_id,ST_AsText(A.geom),ST_AsText(B.geom),...
+        ^
+2015-09-25 20:34:54 ERROR  : ERROR:  column "links.link_id" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: Select distinct link_id, name_default from links where funct...
+                        ^
+2015-09-25 20:51:36 ERROR  : ERROR:  syntax error at or near "elect"
+LINE 1: elect distinct link_id,name_default,ST_Y(A.geom),ST_X(A.geom...
+        ^
+2015-09-25 20:51:42 ERROR  : ERROR:  missing FROM-clause entry for table "a"
+LINE 1: select distinct link_id,name_default,ST_Y(A.geom),ST_X(A.geo...
+                                                  ^
+2015-09-25 21:13:30 ERROR  : ERROR:  syntax error at or near "select"
+LINE 4: select link_id,name_default,from_node_id,to_node_id,length,d...
+        ^
+2015-09-25 21:42:59 ERROR  : ERROR:  syntax error at or near "select"
+LINE 4: select link_id,ST_X(A.geom),ST_Y(A.geom),ST_X(B.geom),ST_Y(B...
+        ^
+2015-09-25 23:37:44 ERROR  : ERROR:  syntax error at or near "("
+LINE 1: Select  name_defaulr count(name_default) from arterial_conge...
+                                  ^
+2015-09-25 23:38:00 ERROR  : ERROR:  syntax error at or near "("
+LINE 1: Select  name_default count(name_default) from arterial_conge...
+                                  ^
+2015-09-25 23:38:23 ERROR  : ERROR:  syntax error at or near "select"
+LINE 4: select name_default,link_id,ST_X(A.geom),ST_Y(A.geom),ST_X(B...
+        ^
+2015-09-25 23:38:27 ERROR  : ERROR:  column "name_default" does not exist
+LINE 1: Select  name_default from arterial_congestion_config where  ...
+                ^
+2015-09-25 23:39:01 ERROR  : ERROR:  syntax error at or near "("
+LINE 1: Select  on_steet count(on_street) from arterial_congestion_c...
+                              ^
+2015-09-25 23:39:12 ERROR  : ERROR:  syntax error at or near "("
+LINE 1: Select  onsteet count(onstreet) from arterial_congestion_con...
+                             ^
+2015-09-25 23:39:30 ERROR  : ERROR:  syntax error at or near "("
+LINE 1: Select  onsteet count(onstreet) from arterial_congestion_con...
+                             ^
+2015-09-25 23:39:42 ERROR  : ERROR:  syntax error at or near "("
+LINE 1: Select  onsteet count(onstreet) from arterial_congestion_con...
+                             ^
+2015-09-25 23:39:59 ERROR  : ERROR:  column "onsteet" does not exist
+LINE 1: Select  onsteet  from arterial_congestion_config where   upp...
+                ^
+2015-09-25 23:40:13 ERROR  : ERROR:  syntax error at or near "("
+LINE 1: Select  onstreet  count(onstreet)from arterial_congestion_co...
+                               ^
+2015-09-25 23:40:40 ERROR  : ERROR:  syntax error at or near "select"
+LINE 4: select name_default,link_id,ST_X(A.geom),ST_Y(A.geom),ST_X(B...
+        ^
+2015-09-25 23:50:36 ERROR  : ERROR:  syntax error at or near "select"
+LINE 4: select name_default,link_id,ST_X(A.geom),ST_Y(A.geom),ST_X(B...
+        ^
+2015-09-26 01:00:35 ERROR  : ERROR:  unterminated quoted string at or near "'2 group by onstreet"
+LINE 1: ... where   upper(onstreet) like '%%'  and direction='2 group b...
+                                                             ^
+2015-09-26 01:06:17 ERROR  : ERROR:  syntax error at or near "have"
+LINE 1: ...t) like '%%'  and direction='2' group by onstreet have onstr...
+                                                             ^
+2015-09-26 01:13:43 ERROR  : ERROR:  syntax error at or near "nd"
+LINE 1: ...(A.geom)<ST_X(B.geom) and ST_X(A.geom)>=-118320000nd ST_X(A....
+                                                             ^
+2015-09-26 01:17:50 ERROR  : ERROR:  syntax error at or near "select"
+LINE 4: select distinct link_id,distinct ST_X(A.geom),ST_Y(A.geom),S...
+        ^
+2015-09-26 01:17:55 ERROR  : ERROR:  syntax error at or near "select"
+LINE 4: select link_id,distinct ST_X(A.geom),ST_Y(A.geom),ST_X(B.geo...
+        ^
+2015-09-26 01:18:09 ERROR  : ERROR:  syntax error at or near "distinct"
+LINE 1: select link_id, distinct (ST_X(A.geom)),ST_Y(A.geom),ST_X(B....
+                        ^
+2015-09-26 01:18:21 ERROR  : ERROR:  syntax error at or near "distinct"
+LINE 1: select link_id,distinct ST_X(A.geom),ST_Y(A.geom),ST_X(B.geo...
+                       ^
+2015-09-26 01:54:08 ERROR  : ERROR:  syntax error at or near "select"
+LINE 4: select distinct link_id, ST_X(A.geom),ST_Y(A.geom),ST_X(B.ge...
+        ^
+2015-09-26 02:07:37 ERROR  : ERROR:  argument of HAVING must be type boolean, not type character varying
+LINE 1: ...ke '%%'  and direction='2' group by onstreet having onstreet
+                                                               ^
+2015-09-26 12:30:40 ERROR  : another command is already in progress
+2015-09-26 12:40:46 ERROR  : ERROR:  column "sensor_geom" does not exist
+LINE 1: select distinct sensor_id ,sensor_geom from  highway_congest...
+                                   ^
+2015-09-26 12:40:53 ERROR  : ERROR:  syntax error at or near "select"
+LINE 4: select distinct link_id, ST_X(A.geom),ST_Y(A.geom),ST_X(B.ge...
+        ^
+2015-09-26 12:41:00 ERROR  : ERROR:  column "geom" does not exist
+LINE 1: select distinct sensor_id ,geom from  highway_congestion_con...
+                                   ^
+2015-09-26 12:42:56 ERROR  : SSL SYSCALL error: Operation timed out
+2015-09-26 12:50:15 ERROR  : ERROR:  syntax error at or near "distinct"
+LINE 1: select * from high_wayselect distinct sensor_id from  highwa...
+                                     ^
+2015-09-26 12:53:33 ERROR  : ERROR:  syntax error at or near "("
+LINE 1: select distinct sensor_id ST_X(start_lat_long) from  highway...
+                                      ^
+2015-09-26 13:07:48 ERROR  : ERROR:  syntax error at or near "ˇ˛"
+LINE 1: select * from sensor_data_highway where sensor_id='717087'ˇ˛
+                                                                  ^
+2015-09-26 15:19:32 ERROR  : FATAL:  pg_hba.conf rejects connection for host "104.32.189.71", user "ds", database "rdsadmin", SSL on
+FATAL:  pg_hba.conf rejects connection for host "104.32.189.71", user "ds", database "rdsadmin", SSL off
+
+2015-09-26 15:29:18 ERROR  : ERROR:  syntax error at or near "sensor_id"
+LINE 4:  sensor_id bigint NOT NULL
+         ^
+2015-09-26 15:29:39 ERROR  : ERROR:  syntax error at or near ")"
+LINE 8: )
+        ^
+2015-09-26 16:19:07 ERROR  : ERROR:  syntax error at or near "insert"
+LINE 2: insert into xh_sensor_mappings Values(626766500002,717116,NU...
+        ^
+2015-09-26 16:19:23 ERROR  : ERROR:  relation "xh_sensor_mappings" does not exist
+LINE 1: insert into xh_sensor_mappings Values(324556830001,717095,Y,...
+                    ^
+2015-09-26 16:20:34 ERROR  : ERROR:  syntax error at or near "insert"
+LINE 2: insert into xh_sensor_mapping Values(324556830002,716101,Y,N...
+        ^
+2015-09-26 16:20:46 ERROR  : ERROR:  column "y" does not exist
+LINE 1: ... into xh_sensor_mapping Values(324556830002,716101,Y,NULL,1)
+                                                              ^
+2015-09-26 16:20:55 ERROR  : ERROR:  column "y" does not exist
+LINE 1: ... into xh_sensor_mapping Values(324556830001,717095,Y,NULL,1)
+                                                              ^
+2015-09-26 16:21:47 ERROR  : ERROR:  syntax error at or near "insert"
+LINE 2: insert into xh_sensor_mapping Values(324556830002,716101,'Y'...
+        ^
+2015-09-26 16:22:23 ERROR  : ERROR:  syntax error at or near "insert"
+LINE 2: insert into xh_sensor_mapping Values(324556830003,717091,NUL...
+        ^
+2015-09-26 16:22:49 ERROR  : ERROR:  syntax error at or near "insert"
+LINE 3: insert into xh_sensor_mapping Values(324556830003,772246,NUL...
+        ^
+2015-09-26 16:22:54 ERROR  : ERROR:  syntax error at end of input
+LINE 2: 
+        ^
+2015-09-26 16:24:14 ERROR  : ERROR:  table name "xh_sensor_mapping" specified more than once
+2015-09-26 16:24:20 ERROR  : ERROR:  syntax error at end of input
+LINE 4:   public.xh_sensor_mapping, 
+                                    ^
+2015-09-26 16:25:24 ERROR  : ERROR:  syntax error at or near "nsert"
+LINE 1: nsert into xh_sensor_mapping Values(626766500002,772249,NULL...
+        ^
+2015-09-26 16:25:31 ERROR  : ERROR:  syntax error at or near "insert"
+LINE 2: insert into xh_sensor_mapping Values(626766500001,717116,'Y'...
+        ^
+2015-09-26 16:25:52 ERROR  : ERROR:  syntax error at or near "insert"
+LINE 2: insert into xh_sensor_mapping Values(626766500001,717116,'Y'...
+        ^
+2015-09-26 16:26:08 ERROR  : ERROR:  syntax error at or near "insert"
+LINE 2: insert into xh_sensor_mapping Values(315324540003,717119,NUL...
+        ^
+2015-09-26 16:26:22 ERROR  : ERROR:  syntax error at or near "insert"
+LINE 2: insert into xh_sensor_mapping Values(315324540003,772285,NUL...
+        ^
+2015-09-26 16:31:48 ERROR  : ERROR:  syntax error at or near "insert"
+LINE 2: insert into xh_sensor_mapping Values(626766500001,717116,'Y'...
+        ^
+2015-09-26 16:35:29 ERROR  : ERROR:  must be superuser to COPY to or from a file
+HINT:  Anyone can COPY to stdout or from stdin. psql's \copy command also works for anyone.
+2015-09-26 16:36:01 ERROR  : ERROR:  syntax error at or near "\"
+LINE 1: \copy xh_sensor_mapping to 'Desktop/test.csv' delimiter as '...
+        ^
+2015-09-26 16:36:08 ERROR  : ERROR:  must be superuser to COPY to or from a file
+HINT:  Anyone can COPY to stdout or from stdin. psql's \copy command also works for anyone.
+2015-09-26 16:37:36 ERROR  : ERROR:  syntax error at or near "insert"
+LINE 1: ...sor_mapping Values(626765940001,717119,NULL,'Y',1)insert int...
+                                                             ^
+2015-09-26 16:39:00 ERROR  : ERROR:  syntax error at or near "*"
+LINE 1: delete * from xh_sensor_mapping
+               ^
+2015-09-26 16:39:33 ERROR  : ERROR:  syntax error at or near "insert"
+LINE 1: ...sor_mapping Values(324556830001,717095,'Y',NULL,1)insert int...
+                                                             ^
+2015-09-27 02:08:03 ERROR  : ERROR:  permission denied for relation updated_links_link_id_seq
+2015-09-27 02:08:07 ERROR  : Column not found in pgSet: last_value
+2015-09-27 02:08:08 ERROR  : Column not found in pgSet: min_value
+2015-09-27 02:08:10 ERROR  : Column not found in pgSet: max_value
+2015-09-27 02:08:10 ERROR  : Column not found in pgSet: cache_value
+2015-09-27 02:08:11 ERROR  : Column not found in pgSet: increment_by
+2015-09-27 02:08:11 ERROR  : Column not found in pgSet: is_cycled
+2015-09-27 02:08:11 ERROR  : Column not found in pgSet: is_called
+2015-09-27 02:08:11 ERROR  : ERROR:  permission denied for relation updated_links_link_id_seq
+2015-09-27 02:08:11 ERROR  : Column not found in pgSet: last_value
+2015-09-27 02:08:12 ERROR  : Column not found in pgSet: min_value
+2015-09-27 02:08:12 ERROR  : Column not found in pgSet: max_value
+2015-09-27 02:08:12 ERROR  : Column not found in pgSet: cache_value
+2015-09-27 02:08:12 ERROR  : Column not found in pgSet: increment_by
+2015-09-27 02:08:12 ERROR  : Column not found in pgSet: is_cycled
+2015-09-27 02:08:12 ERROR  : Column not found in pgSet: is_called
+2015-09-27 13:48:44 ERROR  : ERROR:  function dayofweek(timestamp with time zone) does not exist
+LINE 2: and DAYOFWEEK(timestamp)=2 and HOUR(timestamp)>=6 and HOUR(t...
+            ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+2015-09-27 13:49:09 ERROR  : ERROR:  operator does not exist: ` timestamp with time zone
+LINE 2: and DAYOFWEEK(`timestamp`)=2 and HOUR(timestamp)>=6 and HOUR...
+                      ^
+HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.
+2015-09-27 13:50:02 ERROR  : ERROR:  function dayofweek(timestamp with time zone) does not exist
+LINE 2: and DAYOFWEEK("timestamp")=2 and HOUR(timestamp)>=6 and HOUR...
+            ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+2015-09-27 13:54:44 ERROR  : ERROR:  argument of AND must be type boolean, not type double precision
+LINE 2: and EXTRACT(DOW FROM timestamp) and HOUR(timestamp)>=6 and H...
+            ^
+2015-09-27 13:54:59 ERROR  : ERROR:  operator does not exist: double precision == integer
+LINE 2: and EXTRACT(DOW FROM timestamp)==1 and HOUR(timestamp)>=6 an...
+                                       ^
+HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.
+2015-09-27 13:55:31 ERROR  : ERROR:  function hour(timestamp with time zone) does not exist
+LINE 2: and EXTRACT(DOW FROM timestamp)=1.0 and HOUR(timestamp)>=6 a...
+                                                ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+2015-09-27 15:05:10 ERROR  : SSL SYSCALL error: Operation timed out
+2015-09-27 15:23:51 ERROR  : ERROR:  column "sensor_data_highway.sensor_id" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: select sensor_id,avg(speed), EXTRACT(DOW FROM timestamp) fro...
+               ^
+2015-09-27 15:41:28 ERROR  : ERROR:  column "sensor_data_highway.timestamp" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 2: ...INTERVAL '1 second' * round((extract('epoch' from timestamp)...
+                                                             ^
+2015-09-27 15:44:10 ERROR  : ERROR:  column "sensor_data_highway.timestamp" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 2: ...INTERVAL '1 second' * round((extract('epoch' from timestamp)...
+                                                             ^
+2015-09-27 15:45:52 ERROR  : ERROR:  column "sensor_data_highway.timestamp" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 2: ...INTERVAL '1 second' * round((extract('epoch' from timestamp)...
+                                                             ^
+2015-09-27 15:50:13 ERROR  : ERROR:  column "timestamp_column" does not exist
+LINE 1: select to_timestamp(floor((extract('epoch' from timestamp_co...
+                                                        ^
+2015-09-27 16:00:27 ERROR  : ERROR:  column "interval_alias" does not exist
+LINE 6: ...  group by sensor_id, EXTRACT(DOW FROM timestamp),interval_a...
+                                                             ^
+2015-09-27 16:02:03 ERROR  : ERROR:  syntax error at or near "and"
+LINE 2: and EXTRACT(HOUR FROM timestamp)=6 and and EXTRACT(DOW FROM ...
+                                               ^
+2015-09-27 16:03:15 ERROR  : ERROR:  column "sensor_data_highway.timestamp" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: ...rval_alias,sensor_id,avg(speed), EXTRACT(DOW FROM timestamp)...
+                                                             ^
+2015-09-27 16:06:49 ERROR  : ERROR:  column "section_id" does not exist
+LINE 6: )  group by sensor_id,interval_alias order by section_id,int...
+                                                      ^
+2015-09-27 16:23:35 ERROR  : ERROR:  syntax error at or near "("
+LINE 2: (select to_timestamp(floor((extract('epoch' from timestamp) ...
+        ^
+2015-09-27 16:23:46 ERROR  : ERROR:  subquery in FROM must have an alias
+LINE 2: (select to_timestamp(floor((extract('epoch' from timestamp) ...
+        ^
+HINT:  For example, FROM (SELECT ...) [AS] foo.
+2015-09-27 16:26:17 ERROR  : ERROR:  syntax error at or near ")"
+LINE 6: ...der by sensor_id,EXTRACT(DOW FROM timestamp),interval_alias)
+                                                                      ^
+2015-09-27 16:38:12 ERROR  : ERROR:  syntax error at or near "select"
+LINE 8: select avg(speed) from sensor_data_highway where  speed>1 an...
+        ^
+2015-09-27 16:38:42 ERROR  : ERROR:  syntax error at or near "EXTRACT"
+LINE 2: ...timestamp)=6and EXTRACT(MINUTe from timestamp)>=0 EXTRACT (M...
+                                                             ^
+2015-09-27 22:22:55 ERROR  : SSL SYSCALL error: Operation timed out
+2015-09-28 16:00:21 ERROR  : ERROR:  column "link_id，length" does not exist
+LINE 1: Select link_id，length from links  WHERE from_node_id = 1373...
+               ^
+2015-09-28 16:11:31 ERROR  : server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+2015-09-28 16:11:38 ERROR  : ERROR:  column reference "link_id" is ambiguous
+LINE 1: Select link_id ,length from links,xh_sensor_mapping  WHERE f...
+               ^
+2015-09-28 16:16:02 ERROR  : ERROR:  syntax error at or near "]"
+CONTEXT:  Error occurred on dblink connection named "unnamed": could not execute query.
+2015-09-28 16:17:15 ERROR  : ERROR:  column "start_originalid" does not exist
+LINE 1: ...gint,from_node_id bigint,to_node_id bigint) WHERE start_orig...
+                                                             ^
+2015-09-28 16:17:49 ERROR  : ERROR:  remote query result rowtype does not match the specified FROM clause rowtype
+2015-09-28 16:18:26 ERROR  : ERROR:  syntax error at or near ","
+LINE 1: ..._monday ') AS weights(weights bigint,from_node_id ,to_node_i...
+                                                             ^
+2015-09-28 16:18:54 ERROR  : ERROR:  remote query result rowtype does not match the specified FROM clause rowtype
+2015-09-28 16:24:20 ERROR  : ERROR:  syntax error at or near "]"
+CONTEXT:  Error occurred on dblink connection named "unnamed": could not execute query.
+2015-09-28 16:24:36 ERROR  : ERROR:  relation "xh_sensor_mapping" does not exist
+CONTEXT:  Error occurred on dblink connection named "unnamed": could not execute query.
+2015-09-28 16:25:31 ERROR  : ERROR:  remote query result rowtype does not match the specified FROM clause rowtype
+2015-09-28 16:31:29 ERROR  : ERROR:  permission denied for relation on_edge_sensor_mapping
+2015-09-28 16:31:43 ERROR  : ERROR:  permission denied for relation on_edge_sensor_mapping
+2015-09-28 16:35:03 ERROR  : ERROR:  remote query result rowtype does not match the specified FROM clause rowtype
+2015-09-28 17:12:51 ERROR  : ERROR:  syntax error at or near "elect"
+LINE 1: elect * from dblink('dbname=tallygo  port=5432 host=graph-3....
+        ^
+2015-09-28 17:19:52 ERROR  : ERROR:  invalid input syntax for integer: "{3515,3567,3455,3899,5548,10807,9625,7525,6115,6083,5836,5244,4425,3783,3492,3438,3478,3427,3421,3434,3438,3393,3411,3404,3419,3372,3381,3321,3338,3359,3410,3429,3418,3400,3446,3529,3448,3458,3446,3457,3500,3490,3439,4012,4224,6076,6047,4443,3472,3338,3265,3302,3314,3433,3401,3349,3338,3334,3325,3321}"
+2015-09-28 17:20:13 ERROR  : ERROR:  a column definition list is required for functions returning "record"
+LINE 1: select * from dblink('dbname=tallygo  port=5432 host=graph-3...
+                      ^
+2015-09-28 17:20:25 ERROR  : ERROR:  a column definition list is required for functions returning "record"
+LINE 1: select * from dblink('dbname=tallygo  port=5432 host=graph-3...
+                      ^
+2015-09-28 17:20:42 ERROR  : ERROR:  type "interger[]" does not exist
+LINE 1: ...6098  AND end_originalid =  ') AS weights(weights interger[]...
+                                                             ^
+2015-09-28 17:21:00 ERROR  : ERROR:  syntax error at end of input
+CONTEXT:  Error occurred on dblink connection named "unnamed": could not execute query.
+2015-09-28 22:34:42 ERROR  : ERROR:  syntax error at or near "elect"
+LINE 1: elect length from links where link_id=324550040002
+        ^
+2015-09-30 12:31:25 ERROR  : ERROR:  syntax error at or near "58"
+LINE 1: ...63008225 and to_node_id=122762971 and  time_slot='58' and da...
+                                                             ^
+2015-09-30 12:32:09 ERROR  : ERROR:  syntax error at or near "friday"
+LINE 1: ...e_id=122762971 and  time_slot=58 and day_of_week='friday')  ...
+                                                             ^
+2015-09-30 12:33:36 ERROR  : ERROR:  column "friday" does not exist
+CONTEXT:  Error occurred on dblink connection named "unnamed": could not execute query.
+2015-09-30 12:33:51 ERROR  : ERROR:  syntax error at or near "friday"
+LINE 1: ..._id=122762971 and  time_slot=58 and day_of_week= 'friday' ')...
+                                                             ^
+2015-09-30 12:34:13 ERROR  : ERROR:  syntax error at or near "58"
+LINE 1: ...63008225 and to_node_id=122762971 and  time_slot='58' and da...
+                                                             ^
+2015-09-30 12:37:55 ERROR  : ERROR:  syntax error at or near "58"
+LINE 1: ...008225 and to_node_id=122762971 and  time_slot= \'58\' and d...
+                                                             ^
+2015-09-30 12:38:20 ERROR  : ERROR:  syntax error at or near "58"
+LINE 1: ...008225 and to_node_id=122762971 and  time_slot= /'58/' and d...
+                                                             ^
+2015-09-30 12:39:04 ERROR  : ERROR:  column "58" does not exist
+CONTEXT:  Error occurred on dblink connection named "unnamed": could not execute query.
+2015-09-30 12:48:33 ERROR  : ERROR:  column "58" does not exist
+CONTEXT:  Error occurred on dblink connection named "unnamed": could not execute query.
+2015-09-30 13:34:42 ERROR  : ERROR:  permission denied for relation updated_on_ramps
+2015-09-30 13:38:09 ERROR  : ERROR:  syntax error at or near "*"
+LINE 1: delete * from xh_section_pattern
+               ^
+2015-09-30 22:26:16 ERROR  : SSL SYSCALL error: Operation timed out
+2015-09-30 23:59:26 ERROR  : ERROR:  unterminated quoted string at or near "'tuesday"
+LINE 1: ...pattern set similarity=8 where section_id=3 and day='tuesday
+                                                               ^
+2015-10-01 00:01:07 ERROR  : ERROR:  syntax error at or near "and8day"
+LINE 1: ...ction_pattern set similarity=1 where section_id=2 and8day='m...
+                                                             ^
